@@ -1,4 +1,4 @@
 package com.codegaju;
 
-public class courses {
+public class courseDAO {
 }
