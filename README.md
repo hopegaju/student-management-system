@@ -1,1 +1,2 @@
 # student-management-system
+This Student Management System is designed to simplify the process of adding students, registering them for courses, and recording their marks. This system helps manage students by allowing you to add them, enroll them in courses, and keep track of their marks. It makes sure every mark is linked to the right student and course.
