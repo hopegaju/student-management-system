@@ -7,7 +7,8 @@ import java.util.List;
 public class StudentDAO extends Connect implements Operation<Student>{
     @Override
     public void create(Student stud) {
-        String query = "insert into students (first_name,last_name,email, date_of_birth) values(?,?,?,CAST(? AS DATE))";
+        String query = "insert into students (first_name,last_name,email, date_of_birth) " +
+                "values(?,?,?,CAST(? AS DATE))";
         try(Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, stud.getFirstName());
             stmt.setString(2, stud.getLastName());
@@ -29,7 +30,10 @@ public class StudentDAO extends Connect implements Operation<Student>{
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             while(rs.next()){
-                System.out.println(rs.getString("last_name") +"  "+ rs.getString("first_name") + "  "+ rs.getString("email") + "  "+ rs.getString("date_of_birth"));
+                System.out.println(rs.getString("last_name") +"  "+
+                        rs.getString("first_name") + "  "+
+                        rs.getString("email") + "  "+
+                        rs.getString("date_of_birth"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -40,7 +44,10 @@ public class StudentDAO extends Connect implements Operation<Student>{
     public List<Student> readAll() {
         List<Student> list = new ArrayList<Student>();
         String query = "select * from students";
-        try (Connection conn= connect(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+        try (Connection conn= connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
             while(rs.next()){
              list.add(new Student(rs.getString("first_name"),
                      rs.getString("last_name"),

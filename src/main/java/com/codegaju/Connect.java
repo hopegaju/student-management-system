@@ -15,4 +15,7 @@ public abstract class Connect {
     }
 
     public abstract void create(Student stud);
+
+    public void delete(int delStuId, int delCourseId) {
+    }
 }

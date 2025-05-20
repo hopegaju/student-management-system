@@ -17,6 +17,9 @@ public class Student  {
 
     }
 
+    public Student(int updateId, String newFirst, String newLast, String newEmail, String newDob) {
+    }
+
 
     public String getFirstName() {
         return firstName;
